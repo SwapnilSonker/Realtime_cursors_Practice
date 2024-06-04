@@ -18,6 +18,17 @@ socket.on("connection" , (socket) => {
     socket.on("disconnect" , () => {
         console.log("User is disconnected!!!");
     })
+
+    socket.emit("chat" , "Hi this is from server side...")
+
+    socket.on("clientChat" , (data) => {
+        console.log("server side client data :" , data);
+
+    })
+
+    socket.on("ping" , (count) => {
+        console.log("count" , count);
+    })
 })
 
 httpServer.listen(4000 , () => {
